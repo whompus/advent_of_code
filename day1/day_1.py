@@ -1,22 +1,20 @@
 #!/usr/bin/env python3
 
-with open("simple_input.txt", "r") as file:
+lines = open("wtfinput.txt").read().splitlines()
 
-    calories_exist = True
-    elves = []
-    calorie_count = 0
+elves = []
 
-    for line in file:
-        if line != "\n":
-            calorie_count += int(line)
-        else:
-            elves.append(int(calorie_count))
-            calorie_count = 0
+calorie_count = 0
+
+for line in lines:
+    if line != "":
+        calorie_count += int(line)
+    else:
+        elves.append(int(calorie_count))
+        calorie_count = 0
 
 elves.append(int(calorie_count))
 
 elves.sort()
-
-print(elves)
 
 print("Largest:", elves[-1])
